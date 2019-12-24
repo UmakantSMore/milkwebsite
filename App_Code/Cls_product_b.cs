@@ -155,6 +155,24 @@ namespace BusinessLayer
                 return result;
             }
         }
+
+
+        public Int64 UpdateProductStockOnly(product objproduct)
+        {
+            Int64 result = 0;
+            try
+            {
+                Cls_product_db objCls_product_db = new Cls_product_db();
+                result = Convert.ToInt64(objCls_product_db.Update(objproduct));
+                return result;
+            }
+            catch (Exception ex)
+            {
+                ErrHandler.writeError(ex.Message, ex.StackTrace);
+                return result;
+            }
+        }
+
         public bool Delete(Int64 pid, Int64 cid)
         {
             try

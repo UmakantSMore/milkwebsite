@@ -126,7 +126,7 @@ public partial class addeditcategory : System.Web.UI.Page
         objcategory.discountprice = 0;
         objcategory.shortdesc = txtCategoryShortDescription.Text.Trim();
         objcategory.longdescp = txtCategoryLongDescription.Text.Trim();
-        //objcategory.bankid = Convert.ToInt32(ddlBank.SelectedValue);
+       // objcategory.bankid = Convert.ToInt32("0");
         if (ViewState["fileName"] != null)
         {
             objcategory.imagename = ViewState["fileName"].ToString();

@@ -47,19 +47,19 @@
                     
 
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Dealer Price</label>
                         <asp:TextBox ID="txtDealerPrice" Class="form-control" runat="server" Text="0"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBDealer" runat="server" FilterMode="ValidChars" TargetControlID="txtDealerPrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
+                       <%-- <cc1:FilteredTextBoxExtender ID="FTBDealer" runat="server" FilterMode="ValidChars" TargetControlID="txtDealerPrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>--%>
 
-                        <asp:RequiredFieldValidator ID="RFVtxtDealerPrice" runat="server" Display="Dynamic" ControlToValidate="txtDealerPrice" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                      <%--  <asp:RequiredFieldValidator ID="RFVtxtDealerPrice" runat="server" Display="Dynamic" ControlToValidate="txtDealerPrice" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Wholesaler Price</label>
                         <asp:TextBox ID="txtWholesalePrice" Class="form-control" runat="server" Text="0"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBtxtWholesalePrice" runat="server" FilterMode="ValidChars" TargetControlID="txtWholesalePrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
+                       <%-- <cc1:FilteredTextBoxExtender ID="FTBtxtWholesalePrice" runat="server" FilterMode="ValidChars" TargetControlID="txtWholesalePrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>--%>
 
                     </div>
 
@@ -78,47 +78,47 @@
                         <cc1:FilteredTextBoxExtender ID="FTBtxtSuperWholesalePrice" runat="server" FilterMode="ValidChars" TargetControlID="txtSuperWholesalePrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
 
                     </div>--%>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Product Discount Price</label>
                         <asp:TextBox ID="txtDiscountProductPrice" Class="form-control" runat="server" Text="0"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBtxtDiscountProductPrice" runat="server" FilterMode="ValidChars" TargetControlID="txtDiscountProductPrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
+                      <%--  <cc1:FilteredTextBoxExtender ID="FTBtxtDiscountProductPrice" runat="server" FilterMode="ValidChars" TargetControlID="txtDiscountProductPrice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>--%>
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Product GST in %</label>
-                        <asp:TextBox ID="txtGST" Class="form-control" runat="server"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBtxtGST" runat="server" FilterMode="ValidChars" TargetControlID="txtGST" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
+                        <asp:TextBox ID="txtGST" Class="form-control" runat="server" Text="0"></asp:TextBox>
+                       <%-- <cc1:FilteredTextBoxExtender ID="FTBtxtGST" runat="server" FilterMode="ValidChars" TargetControlID="txtGST" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>--%>
 
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Stock Quantites </label>
-                        <asp:TextBox ID="txtQuantites" Class="form-control" runat="server"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBtxtQuantites" runat="server" FilterMode="ValidChars" TargetControlID="txtQuantites" ValidChars="01234567890.%"></cc1:FilteredTextBoxExtender>
+                        <asp:TextBox ID="txtQuantites" Class="form-control" runat="server" Text="0"></asp:TextBox>
+                        <%--<cc1:FilteredTextBoxExtender ID="FTBtxtQuantites" runat="server" FilterMode="ValidChars" TargetControlID="txtQuantites" ValidChars="01234567890.%"></cc1:FilteredTextBoxExtender>
 
-                        <asp:RequiredFieldValidator ID="RFVtxtQuantites" runat="server" Display="Dynamic" ControlToValidate="txtQuantites" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RFVtxtQuantites" runat="server" Display="Dynamic" ControlToValidate="txtQuantites" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Stock Alert Quantites</label>
-                        <asp:TextBox ID="txtAlertQuantites" Class="form-control" runat="server"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FTBtxtAlertQuantites" runat="server" FilterMode="ValidChars" TargetControlID="txtAlertQuantites" ValidChars="01234567890.%"></cc1:FilteredTextBoxExtender>
+                        <asp:TextBox ID="txtAlertQuantites" Class="form-control" runat="server" Text="0"></asp:TextBox>
+                        <%--<cc1:FilteredTextBoxExtender ID="FTBtxtAlertQuantites" runat="server" FilterMode="ValidChars" TargetControlID="txtAlertQuantites" ValidChars="01234567890.%"></cc1:FilteredTextBoxExtender>
 
-                        <asp:RequiredFieldValidator ID="RFVtxtAlertQuantites" runat="server" Display="Dynamic" ControlToValidate="txtAlertQuantites" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RFVtxtAlertQuantites" runat="server" Display="Dynamic" ControlToValidate="txtAlertQuantites" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">Is Stock</label>
                         <asp:CheckBox ID="cbIsStock" Class="form-control" runat="server"></asp:CheckBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">HSN Code</label>
-                        <asp:TextBox ID="txt_Hsncode" Class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="txt_Hsncode" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txt_Hsncode" Class="form-control" runat="server" Text="0"></asp:TextBox>
+                        <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ControlToValidate="txt_Hsncode" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Real Stock</label>
-                        <asp:TextBox ID="txt_RealStock" Class="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_RealStock" Class="form-control" runat="server" Text="0"></asp:TextBox>
                         <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server" FilterMode="ValidChars" TargetControlID="txt_RealStock" ValidChars="01234567890.%"></cc1:FilteredTextBoxExtender>
 
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Display="Dynamic" ControlToValidate="txt_RealStock" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
@@ -154,9 +154,9 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1" style="display:none">Puchase( Landing ) Price</label>
                         <asp:TextBox ID="txt_landingprice" Class="form-control" Visible="false" runat="server" Text="0"></asp:TextBox>
-                        <cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server" FilterMode="ValidChars" TargetControlID="txt_landingprice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
+                        <%--<cc1:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" runat="server" FilterMode="ValidChars" TargetControlID="txt_landingprice" ValidChars="01234567890."></cc1:FilteredTextBoxExtender>
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ControlToValidate="txt_landingprice" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Display="Dynamic" ControlToValidate="txt_landingprice" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
 
                     </div>
                     
@@ -164,7 +164,7 @@
                         <label for="exampleInputPassword1">Short Description </label>
                         <asp:TextBox ID="txtProductShortDescription" Class="form-control"  TextMode="MultiLine" runat="server"></asp:TextBox>
 
-                        <asp:RequiredFieldValidator ID="RFVtxtProductShortDescription" runat="server" Display="Dynamic" ControlToValidate="txtProductShortDescription" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>
+                       <%-- <asp:RequiredFieldValidator ID="RFVtxtProductShortDescription" runat="server" Display="Dynamic" ControlToValidate="txtProductShortDescription" CssClass="error" ErrorMessage="Required Field" ValidationGroup="p1"></asp:RequiredFieldValidator>--%>
 
                     </div>
 
@@ -196,35 +196,35 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video 1</label>
                         <asp:TextBox ID="txtYouTubeVideo1" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video Name 1 </label>
                         <asp:TextBox ID="txtYoutubeName1" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video 2</label>
                         <asp:TextBox ID="txtYouTubeVideo2" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video Name 2</label>
                         <asp:TextBox ID="txtYoutubeName2" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video 3</label>
                         <asp:TextBox ID="txtYouTubeVideo3" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video Name 3</label>
                         <asp:TextBox ID="txtYoutubeName3" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video 4</label>
                         <asp:TextBox ID="txtYouTubeVideo4" Class="form-control" runat="server"></asp:TextBox>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none;">
                         <label for="exampleInputPassword1">YouTube Video Name 4</label>
                         <asp:TextBox ID="txtYoutubeName4" Class="form-control" runat="server"></asp:TextBox>
                     </div>

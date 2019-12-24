@@ -105,14 +105,14 @@ public partial class addeditproduct : System.Web.UI.Page
     private void Clear()
     {
         txt_Hsncode.Text = string.Empty;
-        txt_RealStock.Text = string.Empty;
-        txt_landingprice.Text = string.Empty;
+        txt_RealStock.Text = "0";
+        txt_landingprice.Text = "0";
 
         txtProductName.Text = string.Empty;
         txtSKU.Text = string.Empty;
-        txtCustomerProductPrice.Text = string.Empty;
-        txtDealerPrice.Text = string.Empty;
-        txtDiscountProductPrice.Text = string.Empty;
+        txtCustomerProductPrice.Text = "0";
+        txtDealerPrice.Text = "0";
+        txtDiscountProductPrice.Text = "0";
         txtProductDescription.Text = string.Empty;
         txtProductShortDescription.Text = string.Empty;
         cbIsStock.Checked = false;
@@ -120,7 +120,7 @@ public partial class addeditproduct : System.Web.UI.Page
         ViewState["fileName"] = null;
         btnImageUpload.Visible = true;
         btnRemove.Visible = false;
-        txtWholesalePrice.Text = string.Empty;
+        txtWholesalePrice.Text = "0";
         txtYoutubeName1.Text = string.Empty;
         txtYoutubeName2.Text = string.Empty;
         txtYoutubeName3.Text = string.Empty;

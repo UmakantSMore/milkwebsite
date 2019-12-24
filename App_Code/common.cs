@@ -170,6 +170,9 @@ public class common
         string filenamename = string.Empty;
         try
         {
+            //ocommon.CreateThumbnail1("uploads\\category\\", categoryImageFrontWidth, categoryImageFrontHeight, "~/Uploads/category/front/", fileName);
+            //ocommon.CreateThumbnail1(FarmerMainPath, categoryImageFrontWidth, categoryImageFrontHeight, FarmerFrontPath, fileName);
+
             lcFilename = HttpContext.Current.Server.MapPath(HttpContext.Current.Request.ApplicationPath) + "\\" + lcFilename + filename;
             Bitmap loBMP = new Bitmap(lcFilename);
             ImageFormat loFormat = loBMP.RawFormat;
@@ -212,7 +215,7 @@ public class common
             g.DrawImage(loBMP, 0, 0, lnNewWidth, lnNewHeight);
             loBMP.Dispose();
         }
-        catch
+        catch(Exception ex)
         {
             return null;
         }

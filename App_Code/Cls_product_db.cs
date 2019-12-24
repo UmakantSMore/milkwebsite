@@ -422,6 +422,44 @@ namespace DatabaseLayer
             return result;
         }
 
+
+
+        public Int64 UpdateProductStockOnly(product objproduct)
+        {
+            Int64 result = 0;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "product_UpdateProductStockOnly";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = ConnectionString;
+
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@pid";
+                param.Value = objproduct.pid;
+                param.SqlDbType = SqlDbType.BigInt;
+                param.Direction = ParameterDirection.InputOutput;
+                cmd.Parameters.Add(param);
+                cmd.Parameters.AddWithValue("@RealStock", objproduct.RealStock);
+                
+                ConnectionString.Open();
+                cmd.ExecuteNonQuery();
+                result = Convert.ToInt64(param.Value);
+            }
+            catch (Exception ex)
+            {
+                ErrHandler.writeError(ex.Message, ex.StackTrace);
+                return result;
+            }
+            finally
+            {
+                ConnectionString.Close();
+            }
+            return result;
+        }
+
+
+
         public bool Delete(Int64 pid, Int64 cid)
         {
             try

@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/morya.master" AutoEventWireup="true" CodeFile="managecategory.aspx.cs" Inherits="managecategory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/morya.master" AutoEventWireup="true" CodeFile="managecollectionproducts.aspx.cs" Inherits="managecollectionproducts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -13,55 +14,48 @@
                     <!-- /.box -->
 
 
-                   
+
                     <div class="box">
                         <br />
-                         <div class="text-center">
-                        <b id="spnMessage" visible="false" runat="server"></b>
-                    </div>
-                        <br />
+                        <div class="text-center">
+                            <b id="spnMessage" visible="false" runat="server"></b>
+                        </div>
+                        
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <br />
                             
-                            <div style="text-align:right;">
-                                <asp:Button ID="btnNewCategoty" runat="server" Text="Add New Category" class="btn btn-Normal btn-primary" OnClick="btnNewCategoty_Click" Width="150" />
+
+                            <div style="text-align: right;">
+                                <asp:Button ID="btnNewProduct" runat="server" Text="New Product" class="btn btn-Normal btn-flickr" OnClick="btnNewProduct_Click" Width="150" />
                             </div>
                             <br />
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;display:none;">Seq No</th>
+                                        <%--//id, name, isdeleted--%>
+                                        <th style="text-align: center">Sr No</th>
                                         <th style="text-align: center">Name</th>
-                                        <th style="text-align: center">Image</th>
-                                        <th style="text-align: center">Is Show</th>
                                         <th style="text-align: center">Action</th>
                                     </tr>
                                 </thead>
 
 
                                 <tbody>
-                                    <asp:Repeater ID="repCategory" runat="server" OnItemDataBound="repCategory_ItemDataBound">
+                                    <asp:Repeater ID="repProduct" runat="server" OnItemDataBound="repProduct_ItemDataBound">
                                         <ItemTemplate>
                                             <tr>
-                                                <td style="text-align: center;display:none;">
-                                                    <asp:DropDownList ID="ddlSeqNo" runat="server" CssClass="form-control" Width="70px" AutoPostBack="true" OnSelectedIndexChanged="ddlSeqNo_SelectedIndexChanged" />
+                                                <td style="text-align: center">
+                                                    <asp:Label ID="lblsrno" runat="server"></asp:Label>
+                                                    
                                                 </td>
                                                 <td style="text-align: center">
-                                                    <asp:Label ID="lblCategoryId" runat="server" Visible="false" Text='<%# Eval("cid") %>'></asp:Label>
-                                                    <asp:Label ID="lblProductCount" runat="server" Visible="false" Text='<%# Eval("productcount") %>'></asp:Label>
-                                                    <asp:Label ID="lblSeqNo" runat="server" Visible="false" Text='<%# Eval("seqno") %>'></asp:Label>
-                                                    <asp:Label ID="lblCategoryName" runat="server" Text='<%# Eval("categoryname") %>'></asp:Label>
+                                                    <asp:Label ID="lblid" runat="server" Visible="false" Text='<%# Eval("id") %>'></asp:Label>
+                                                    <asp:Label ID="lblname" runat="server" Text='<%# Eval("name") %>'></asp:Label>
                                                 </td>
+
                                                 <td style="text-align: center">
-                                                    <asp:Image ID="imgCategory" Width="75px" Height="50px" runat="server"></asp:Image>
-                                                </td>
-                                                <td style="text-align: center">
-                                                    <asp:CheckBox ID="IsActive" runat="server" AutoPostBack="true" Checked='<%# Eval("isactive") %>' OnCheckedChanged="IsActive_CheckedChanged" />
-                                                </td>
-                                                <td style="text-align: center">
-                                                    <asp:HyperLink ID="hlEdit" runat="server" Style="text-decoration: underline" class="btn btn-success" Text="Edit"></asp:HyperLink>&nbsp;
-                                        &nbsp;<asp:LinkButton ID="lnkDelete" runat="server" Text="Delete" class="btn btn-danger" OnClientClick="return confirm('Do you want to delete this category?');" OnClick="lnkDelete_Click"></asp:LinkButton>
+                                                    <asp:HyperLink ID="hlEdit" runat="server" class="btn btn-success" Text="EDIT"></asp:HyperLink>&nbsp;
+                                        &nbsp;<asp:LinkButton ID="lnkDelete" runat="server" Text="DELETE" class="btn btn-danger" OnClientClick="return confirm('Do you want to delete this record?');" OnClick="lnkDelete_Click"></asp:LinkButton>
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
@@ -70,10 +64,8 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th style="text-align: center">Seq No</th>
+                                        <th style="text-align: center">Sr No</th>
                                         <th style="text-align: center">Name</th>
-                                        <th style="text-align: center">Image</th>
-                                        <th style="text-align: center">Is Show</th>
                                         <th style="text-align: center">Action</th>
                                     </tr>
                                 </tfoot>
@@ -108,6 +100,7 @@
     <!-- page script -->
     <script>
         $(function () {
+            //$('#example1').DataTable({ "order": [[0, "desc"]] })
             $('#example1').DataTable()
             $('#example2').DataTable({
                 'paging': true,
@@ -121,4 +114,5 @@
     </script>
 
 </asp:Content>
+
 

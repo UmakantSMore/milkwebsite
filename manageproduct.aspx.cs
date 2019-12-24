@@ -156,129 +156,128 @@ public partial class manageproduct : System.Web.UI.Page
         if ((e.Item.ItemType == ListItemType.Item) || (e.Item.ItemType == ListItemType.AlternatingItem))
         {
 
-            DropDownList ddlSeqNo = (DropDownList)e.Item.FindControl("ddlSeqNo");
-            HyperLink hlAddImageVideo = (HyperLink)e.Item.FindControl("hlAddImageVideo");
+           // DropDownList ddlSeqNo = (DropDownList)e.Item.FindControl("ddlSeqNo");
+          //  HyperLink hlAddImageVideo = (HyperLink)e.Item.FindControl("hlAddImageVideo");
             HyperLink hlEdit = (HyperLink)e.Item.FindControl("hlEdit");
             hlEdit.NavigateUrl = Page.ResolveUrl("~/addeditproduct.aspx?id=" + ocommon.Encrypt(DataBinder.Eval(e.Item.DataItem, "pid").ToString(), true));
-            hlAddImageVideo.NavigateUrl = Page.ResolveUrl("~/addeditproductmultipleimages.aspx?id=" + ocommon.Encrypt(DataBinder.Eval(e.Item.DataItem, "pid").ToString(), true));
-            //Image imgProduct = (Image)e.Item.FindControl("imgProduct");
-            //imgProduct.ImageUrl = productFrontPath + DataBinder.Eval(e.Item.DataItem, "mainimage").ToString();
-            Fill_SeqNo(Convert.ToInt64(DataBinder.Eval(e.Item.DataItem, "SeqNo")), Convert.ToInt64(DataBinder.Eval(e.Item.DataItem, "MaxSeqNo")), ref ddlSeqNo);
+           // hlAddImageVideo.NavigateUrl = Page.ResolveUrl("~/addeditproductmultipleimages.aspx?id=" + ocommon.Encrypt(DataBinder.Eval(e.Item.DataItem, "pid").ToString(), true));
+            
+          //  Fill_SeqNo(Convert.ToInt64(DataBinder.Eval(e.Item.DataItem, "SeqNo")), Convert.ToInt64(DataBinder.Eval(e.Item.DataItem, "MaxSeqNo")), ref ddlSeqNo);
         }
     }
 
-    protected void btnSave_Click(object sender, EventArgs e)
-    {
-        bool yes = false;
-        foreach (RepeaterItem item in repProduct.Items)
-        {
-            CheckBox chkContainer = (CheckBox)item.FindControl("chkContainer");
-            if (chkContainer.Checked)
-            {
-                string ProductId = chkContainer.Attributes["attr-ID"];
-                TextBox txtDiscountPrice = (TextBox)item.FindControl("txtDiscountPrice");
-                TextBox txtStockQuantites = (TextBox)item.FindControl("txtStockQuantites");
-                TextBox txtStockAlertQuantites = (TextBox)item.FindControl("txtStockAlertQuantites");
-                TextBox txtCustomerPrice = (TextBox)item.FindControl("txtCustomerPrice");
-                TextBox txtDealerPrice = (TextBox)item.FindControl("txtDealerPrice");
-                TextBox txtWholesaleprice = (TextBox)item.FindControl("txtWholesaleprice");
-                TextBox txtSuperWholesaleprice = (TextBox)item.FindControl("txtSuperWholesaleprice");
-                TextBox txtGST = (TextBox)item.FindControl("txtGST");
-                CheckBox chbIsStock = (CheckBox)item.FindControl("chbIsStock");
-                CheckBox chbIsActive = (CheckBox)item.FindControl("IsActive");
-                CheckBox chkisHotproduct = (CheckBox)item.FindControl("isHotproduct");
-                Decimal DiscountPrice = 0;
-                int StockQuantites = 0;
-                int StockAlertQuantites = 0;
-                Decimal CustomerPrice = 0;
-                Decimal DealerPrice = 0;
-                Decimal Wholesaleprice = 0;
-                Decimal SuperWholesaleprice = 0;
-                Decimal GST = 0;
-                if (!string.IsNullOrEmpty(txtDiscountPrice.Text))
-                {
-                    DiscountPrice = Convert.ToDecimal(txtDiscountPrice.Text);
-                }
-                else
-                {
-                    DiscountPrice = 0;
-                }
+    //protected void btnSave_Click(object sender, EventArgs e)
+    //{
+    //    bool yes = false;
+    //    foreach (RepeaterItem item in repProduct.Items)
+    //    {
+    //        CheckBox chkContainer = (CheckBox)item.FindControl("chkContainer");
+    //        if (chkContainer.Checked)
+    //        {
+    //            string ProductId = chkContainer.Attributes["attr-ID"];
+    //            TextBox txtDiscountPrice = (TextBox)item.FindControl("txtDiscountPrice");
+    //            TextBox txtStockQuantites = (TextBox)item.FindControl("txtStockQuantites");
+    //            TextBox txtStockAlertQuantites = (TextBox)item.FindControl("txtStockAlertQuantites");
+    //            TextBox txtCustomerPrice = (TextBox)item.FindControl("txtCustomerPrice");
+    //            TextBox txtDealerPrice = (TextBox)item.FindControl("txtDealerPrice");
+    //            TextBox txtWholesaleprice = (TextBox)item.FindControl("txtWholesaleprice");
+    //            TextBox txtSuperWholesaleprice = (TextBox)item.FindControl("txtSuperWholesaleprice");
+    //            TextBox txtGST = (TextBox)item.FindControl("txtGST");
+    //            CheckBox chbIsStock = (CheckBox)item.FindControl("chbIsStock");
+    //            CheckBox chbIsActive = (CheckBox)item.FindControl("IsActive");
+    //            CheckBox chkisHotproduct = (CheckBox)item.FindControl("isHotproduct");
+    //            Decimal DiscountPrice = 0;
+    //            int StockQuantites = 0;
+    //            int StockAlertQuantites = 0;
+    //            Decimal CustomerPrice = 0;
+    //            Decimal DealerPrice = 0;
+    //            Decimal Wholesaleprice = 0;
+    //            Decimal SuperWholesaleprice = 0;
+    //            Decimal GST = 0;
+    //            if (!string.IsNullOrEmpty(txtDiscountPrice.Text))
+    //            {
+    //                DiscountPrice = Convert.ToDecimal(txtDiscountPrice.Text);
+    //            }
+    //            else
+    //            {
+    //                DiscountPrice = 0;
+    //            }
 
-                if (!string.IsNullOrEmpty(txtStockQuantites.Text))
-                {
-                    StockQuantites = Convert.ToInt32(txtStockQuantites.Text);
-                }
-                else
-                {
-                    StockQuantites = 0;
-                }
-                if (!string.IsNullOrEmpty(txtStockAlertQuantites.Text))
-                {
-                    StockAlertQuantites = Convert.ToInt32(txtStockAlertQuantites.Text);
-                }
-                else
-                {
-                    StockAlertQuantites = 0;
-                }
-                if (!string.IsNullOrEmpty(txtCustomerPrice.Text))
-                {
-                    CustomerPrice = Convert.ToDecimal(txtCustomerPrice.Text);
-                }
-                else
-                {
-                    CustomerPrice = 0;
-                }
-                if (!string.IsNullOrEmpty(txtDealerPrice.Text))
-                {
-                    DealerPrice = Convert.ToDecimal(txtDealerPrice.Text);
-                }
-                else
-                {
-                    DealerPrice = 0;
-                }
-                if (!string.IsNullOrEmpty(txtWholesaleprice.Text))
-                {
-                    Wholesaleprice = Convert.ToDecimal(txtWholesaleprice.Text);
-                }
-                else
-                {
-                    Wholesaleprice = 0;
-                }
-                if (!string.IsNullOrEmpty(txtSuperWholesaleprice.Text))
-                {
-                    SuperWholesaleprice = Convert.ToDecimal(txtSuperWholesaleprice.Text);
-                }
-                else
-                {
-                    SuperWholesaleprice = 0;
-                }
-                if (!string.IsNullOrEmpty(txtGST.Text))
-                {
-                    GST = Convert.ToDecimal(txtGST.Text);
-                }
-                else
-                {
-                    GST = 0;
-                }
+    //            if (!string.IsNullOrEmpty(txtStockQuantites.Text))
+    //            {
+    //                StockQuantites = Convert.ToInt32(txtStockQuantites.Text);
+    //            }
+    //            else
+    //            {
+    //                StockQuantites = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtStockAlertQuantites.Text))
+    //            {
+    //                StockAlertQuantites = Convert.ToInt32(txtStockAlertQuantites.Text);
+    //            }
+    //            else
+    //            {
+    //                StockAlertQuantites = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtCustomerPrice.Text))
+    //            {
+    //                CustomerPrice = Convert.ToDecimal(txtCustomerPrice.Text);
+    //            }
+    //            else
+    //            {
+    //                CustomerPrice = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtDealerPrice.Text))
+    //            {
+    //                DealerPrice = Convert.ToDecimal(txtDealerPrice.Text);
+    //            }
+    //            else
+    //            {
+    //                DealerPrice = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtWholesaleprice.Text))
+    //            {
+    //                Wholesaleprice = Convert.ToDecimal(txtWholesaleprice.Text);
+    //            }
+    //            else
+    //            {
+    //                Wholesaleprice = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtSuperWholesaleprice.Text))
+    //            {
+    //                SuperWholesaleprice = Convert.ToDecimal(txtSuperWholesaleprice.Text);
+    //            }
+    //            else
+    //            {
+    //                SuperWholesaleprice = 0;
+    //            }
+    //            if (!string.IsNullOrEmpty(txtGST.Text))
+    //            {
+    //                GST = Convert.ToDecimal(txtGST.Text);
+    //            }
+    //            else
+    //            {
+    //                GST = 0;
+    //            }
 
-                yes = (new Cls_product_b().Product_UpdatePrice(Convert.ToInt64(ProductId), CustomerPrice, DealerPrice, DiscountPrice, GST, StockQuantites, chbIsStock.Checked, chbIsActive.Checked, Wholesaleprice, SuperWholesaleprice, StockAlertQuantites,chkisHotproduct.Checked));
-            }
-        }
-        spnMessage.Visible = true;
-        spnMessage.Style.Add("color", "green");
-        spnMessage.InnerText = "Product Updated Successfully";
-        if (ViewState["CategoryId"] != null)
-        {
-            // BindProduct(Convert.ToInt64(ViewState["CategoryId"]));
-            search();
-        }
-        else
-        {
-            // BindProduct(Convert.ToInt64(ddlCategory.SelectedValue));
-            search();
+    //            yes = (new Cls_product_b().Product_UpdatePrice(Convert.ToInt64(ProductId), CustomerPrice, DealerPrice, DiscountPrice, GST, StockQuantites, chbIsStock.Checked, chbIsActive.Checked, Wholesaleprice, SuperWholesaleprice, StockAlertQuantites,chkisHotproduct.Checked));
+    //        }
+    //    }
+    //    spnMessage.Visible = true;
+    //    spnMessage.Style.Add("color", "green");
+    //    spnMessage.InnerText = "Product Updated Successfully";
+    //    if (ViewState["CategoryId"] != null)
+    //    {
+    //        // BindProduct(Convert.ToInt64(ViewState["CategoryId"]));
+    //        search();
+    //    }
+    //    else
+    //    {
+    //        // BindProduct(Convert.ToInt64(ddlCategory.SelectedValue));
+    //        search();
 
-        }
-    }
+    //    }
+    //}
 
     protected void ddlSeqNo_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -384,48 +383,7 @@ public partial class manageproduct : System.Web.UI.Page
             ConnectionString.Close();
         }
     }
-    protected void btn_updateRealStock_Click(object sender, EventArgs e)
-    {
-        DataTable dtTable = new DataTable();
-        SqlConnection ConnectionString = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["cnstring"].ConnectionString);
-        try
-        {
-            SqlDataAdapter da;
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "product_SelectAllAdmin";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = ConnectionString;
-            // cmd.Parameters.AddWithValue("@categoryid", ddlCategory.SelectedValue);
-            ConnectionString.Open();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(dtTable);
-            if (dtTable != null)
-            {
-                for (int i = 0; i < dtTable.Rows.Count; i++)
-                {
-                    string pid1 = dtTable.Rows[i]["pid"].ToString();
-                    string quantites1 = dtTable.Rows[i]["quantites"].ToString();
-                    string RealStock1 = dtTable.Rows[i]["RealStock"].ToString();
-                    string s = "update product set quantites=" + RealStock1 + " where pid=" + pid1 + "";
-                    SqlCommand cmd1 = new SqlCommand(s, ConnectionString);
-                    int t = cmd1.ExecuteNonQuery();
-
-
-                }
-            }
-            ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "", "alert('Stock Updated Successfully')", true);
-        }
-        catch (Exception ex)
-        {
-            ErrHandler.writeError(ex.Message, ex.StackTrace);
-        }
-        finally
-        {
-            ConnectionString.Close();
-        }
-    }
-
-
+    
     //paging------------------
     private int CurrentPage
     {
